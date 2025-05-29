@@ -1,0 +1,8 @@
+#!/bin/bash
+/Users/jullweber/.composer/vendor/bin/phpcbf --standard=WordPress --warning-severity=1 --error-severity=1 "$@"
+# phpcbf returns 1 if it made changes but couldn't fix everything
+# which is fine for our purposes
+if [ $? -eq 1 ]; then
+  exit 0
+fi
+exit $?
